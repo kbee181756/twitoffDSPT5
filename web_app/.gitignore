@@ -1,0 +1,6 @@
+migrations 
+
+*.db
+
+# ignore secret credentials
+.evn
