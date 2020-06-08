@@ -1,9 +1,10 @@
 # web_app/services/basilica_service.py
 # web_app/services/basilica_service.py 
 
+import os 
 import basilica
 
-import os 
+
 
 from dotenv import  load_dotenv
 

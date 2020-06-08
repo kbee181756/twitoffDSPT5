@@ -14,7 +14,7 @@ def get_user(screen_name=None):
 
     twitter_user = twitter_api_client.get_user(screen_name)
     statuses = twitter_api_client.user_timeline(screen_name, tweet_mode="extended", count=150)
-    print("STATUSES COUNT:" len(statuses))
+    print("STATUSES COUNT:", len(statuses))
     #return jsonify({"user": user._json, "tweets": [s._json for s in statuses]})
 
     # get existing user from db or initilize a new one
@@ -48,5 +48,5 @@ def get_user(screen_name=None):
         counter+=1
     db.session.commit()
     return "OK"
-    
+
     # return render_template("user.html", user=db_user, tweets=statuses) # tweets=db_tweets 

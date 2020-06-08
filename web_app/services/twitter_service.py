@@ -6,7 +6,7 @@ from pprint import pprint
 from dotenv import load_dotenv
 import tweepy
 
-load_dotevn()
+load_dotenv()
 
 TWITTER_API_KEY = os.getenv("consumer_key")
 TWITTER_API_SECRET = os.getenv("consumer_secret")
@@ -14,15 +14,15 @@ TWITTER_ACCESS_TOKEN = os.getenv("access_token")
 TWITTER_ACCESS_TOKEN_SECRET = os.getenv("access_secret")
 
 
-auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_token, access_secret)
+auth = tweepy.OAuthHandler(TWITTER_API_KEY, TWITTER_API_SECRET)
+auth.set_access_token(TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_TOKEN_SECRET)
 print("AUTH", type(auth))
  
 api = tweepy.API(auth)
 print("API CLIENT", type(api))
 
-# def twitter_api_client():
-    return tweepy.API(auth)
+#def twitter_api_client():
+#    return tweepy.API(auth)
 
 if __name__ == "__main__":
     user  = api.get_user("username")
@@ -39,4 +39,4 @@ if __name__ == "__main__":
 
     for tweet in tweets:
         print("-----")
-        pritn(tweet.id, tweet.full_text)
+        print(tweet.id, tweet.full_text)
