@@ -21,8 +21,8 @@ print("AUTH", type(auth))
 api = tweepy.API(auth)
 print("API CLIENT", type(api))
 
-#def twitter_api_client():
-#    return tweepy.API(auth)
+def twitter_api_client():
+    return tweepy.API(auth)
 
 if __name__ == "__main__":
     user  = api.get_user("username")

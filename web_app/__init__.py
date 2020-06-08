@@ -15,6 +15,7 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app, db)
 
+    
     app.register_blueprint(home_routes)
     app.register_blueprint(book_routes)
     app.register_blueprint(twitter_routes)

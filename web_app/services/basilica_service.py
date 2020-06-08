@@ -10,7 +10,7 @@ from dotenv import  load_dotenv
 
 load_dotenv()  # parse the .evv file for the environment variable
 
-BASILICA_API_KEY = os.getevn("BASILICA_API_KEY")
+BASILICA_API_KEY = os.getenv("BASILICA_API_KEY")
 
 connection = basilica.Connection('b4e679b7-5d94-d89e-70a2-3332c31a6b7a')
 print(type(connection))
