@@ -8,10 +8,10 @@ import tweepy
 
 load_dotenv()
 
-TWITTER_API_KEY = os.getenv("consumer_key")
-TWITTER_API_SECRET = os.getenv("consumer_secret")
-TWITTER_ACCESS_TOKEN = os.getenv("access_token")
-TWITTER_ACCESS_TOKEN_SECRET = os.getenv("access_secret")
+TWITTER_API_KEY = os.getenv("TWITTER_API_KEY")
+TWITTER_API_SECRET = os.getenv("TWITTER_API_SECRET")
+TWITTER_ACCESS_TOKEN = os.getenv("WITTER_ACCESS_TOKEN")
+TWITTER_ACCESS_TOKEN_SECRET = os.getenv("TWITTER_ACCESS_TOKEN_SECRET")
 
 
 auth = tweepy.OAuthHandler(TWITTER_API_KEY, TWITTER_API_SECRET)
@@ -34,7 +34,7 @@ if __name__ == "__main__":
     print(user.followers_count)
 
     #tweets = api.user_timeline("username", tweet_mode='extended', count=150, exclude_replies=True, include_rts=False)
-    tweets = api.user_timeline('username', tweet_mode='extneded', count=150)
+    tweets = api.user_timeline('username', tweet_mode='extended', count=150)
     print(type(tweets))
 
     for tweet in tweets:

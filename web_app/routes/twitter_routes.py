@@ -1,7 +1,7 @@
 #web_app/routes/twitter_routes.py
 
 
-from flask import Blueprint, render_template, jsonify
+from flask import Blueprint, render_template, jsonify, request, redirect
 from web_app.models import db, User, Tweet, parse_records
 from web_app.services.twitter_service import api as twitter_api_client
 from web_app.services.basilica_service import connection as basilica_api_client
@@ -14,6 +14,7 @@ def get_user(screen_name=None):
 
     twitter_user = twitter_api_client.get_user(screen_name)
     statuses = twitter_api_client.user_timeline(screen_name, tweet_mode="extended", count=150)
+    
     print("STATUSES COUNT:", len(statuses))
     #return jsonify({"user": user._json, "tweets": [s._json for s in statuses]})
 
@@ -23,6 +24,7 @@ def get_user(screen_name=None):
     db_user.name = twitter_user.name
     db_user.location = twitter_user.location
     db_user.followers_counts = twitter_user.followers_count
+    
     db.session.add(db.user)
     db.session.commit()
     #return "OK"
@@ -49,4 +51,4 @@ def get_user(screen_name=None):
     db.session.commit()
     return "OK"
 
-    # return render_template("user.html", user=db_user, tweets=statuses) # tweets=db_tweets 
+    return render_template("user.html", user=db_user, tweets=statuses) # tweets=db_tweets 
